@@ -1,0 +1,1 @@
+var r={page:"cn",emptyState:"bn",hero:"fn",heroIcon:"un",heroTitle:"hn",heroSubtitle:"mn",fieldCard:"yn",fieldLabel:"wn",slider:"c",sliderValue:"Fn",priceCard:"ce",summaryCard:"kn",summaryRow:"vn",summaryRowTotal:"zn",ltr:"Cn",divider:"Bn",infoCard:"En",cardNumber:"An",fileDrop:"jn",doneInner:"b",doneIcon:"Yn",doneCard:"qn"};export{r as a};

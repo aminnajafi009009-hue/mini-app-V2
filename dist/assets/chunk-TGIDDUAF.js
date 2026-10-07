@@ -1,0 +1,1 @@
+import{f as a,l as e}from"./chunk-T35AMKJG.js";var t=a(e());function r(c="light"){try{t.default.HapticFeedback.impactOccurred(c)}catch(i){}}function o(c="success"){try{t.default.HapticFeedback.notificationOccurred(c)}catch(i){}}export{r as a,o as b};
