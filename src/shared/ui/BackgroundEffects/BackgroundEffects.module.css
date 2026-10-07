@@ -1,0 +1,249 @@
+/* ===========================================================
+   Galaxy Background Engine — "Cosmic Business VPN"
+   Deep space void + drifting nebula + ringed planet + comet
+=========================================================== */
+
+.wrapper{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:
+    radial-gradient(120% 90% at 15% -10%, #171045 0%, transparent 55%),
+    radial-gradient(100% 80% at 90% 110%, #0B1A3A 0%, transparent 50%),
+    linear-gradient(180deg, #05040D 0%, #070914 45%, #030308 100%);
+  pointer-events:none;
+}
+
+/* ---------------------------------------------
+   Nebula clouds — violet / magenta / cyan / gold
+--------------------------------------------- */
+
+.nebula{
+  position:absolute;
+  inset:-20%;
+  background:
+    radial-gradient(38% 30% at 12% 18%, rgba(139,92,246,.46), transparent 70%),
+    radial-gradient(32% 26% at 88% 12%, rgba(0,217,255,.30), transparent 70%),
+    radial-gradient(40% 34% at 78% 82%, rgba(241,60,255,.26), transparent 70%),
+    radial-gradient(30% 24% at 20% 88%, rgba(255,184,77,.16), transparent 70%),
+    radial-gradient(24% 20% at 55% 55%, rgba(255,61,154,.14), transparent 70%);
+  filter:blur(58px) saturate(135%);
+  animation: nebulaDrift 18s ease-in-out infinite alternate;
+  opacity:1;
+}
+
+@keyframes nebulaDrift{
+  0%{ transform:translate3d(0,0,0) scale(1) rotate(0deg); }
+  50%{ transform:translate3d(-2%,3%,0) scale(1.06) rotate(2deg); }
+  100%{ transform:translate3d(3%,-2%,0) scale(1.1) rotate(-2deg); }
+}
+
+/* ---------------------------------------------
+   Ringed planet — signature element
+--------------------------------------------- */
+
+.planet{
+  position:absolute;
+  top:-120px;
+  left:-110px;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 32% 28%, #4A3B8E 0%, #241C4C 40%, #0E0C22 72%, transparent 100%);
+  box-shadow:
+    0 0 120px rgba(124,77,255,.28),
+    inset -18px -14px 40px rgba(0,0,0,.55),
+    inset 10px 8px 24px rgba(180,150,255,.18);
+  opacity:.9;
+}
+
+.planetRing{
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:150%;
+  height:46%;
+  border:1.5px solid rgba(255,214,140,.28);
+  border-radius:50%;
+  transform:translate(-50%,-50%) rotate(-18deg);
+  box-shadow:
+    0 0 18px rgba(255,214,140,.12),
+    0 0 40px rgba(124,77,255,.10);
+}
+
+.planetRing::after{
+  content:"";
+  position:absolute;
+  inset:6px;
+  border:1px solid rgba(65,232,255,.16);
+  border-radius:50%;
+}
+
+.moon{
+  position:absolute;
+  bottom:6%;
+  right:-40px;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:radial-gradient(circle at 38% 32%, #FFE3AE 0%, #E0A24A 35%, #6B4A1F 70%, transparent 100%);
+  opacity:.16;
+  filter:blur(1px);
+}
+
+/* ---------------------------------------------
+   Starfield — two depths, twinkling
+--------------------------------------------- */
+
+.starsFar{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(1px 1px at 10% 12%, rgba(255,255,255,.55), transparent 100%),
+    radial-gradient(1px 1px at 32% 68%, rgba(255,255,255,.4), transparent 100%),
+    radial-gradient(1px 1px at 58% 22%, rgba(255,255,255,.5), transparent 100%),
+    radial-gradient(1px 1px at 74% 78%, rgba(255,255,255,.35), transparent 100%),
+    radial-gradient(1px 1px at 88% 40%, rgba(255,255,255,.45), transparent 100%),
+    radial-gradient(1px 1px at 15% 85%, rgba(255,255,255,.4), transparent 100%),
+    radial-gradient(1px 1px at 46% 45%, rgba(255,255,255,.5), transparent 100%);
+  background-size:100% 100%;
+  opacity:.55;
+}
+
+.starsNear{
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(1.6px 1.6px at 22% 30%, #fff, transparent 100%),
+    radial-gradient(1.6px 1.6px at 68% 15%, #C9D2FF, transparent 100%),
+    radial-gradient(2px 2px at 85% 60%, #fff, transparent 100%),
+    radial-gradient(1.6px 1.6px at 40% 80%, #FFE3AE, transparent 100%),
+    radial-gradient(2px 2px at 12% 55%, #9BE8FF, transparent 100%),
+    radial-gradient(1.6px 1.6px at 60% 92%, #fff, transparent 100%),
+    radial-gradient(1.6px 1.6px at 92% 25%, #C9D2FF, transparent 100%);
+  background-size:100% 100%;
+  animation: twinkle 4.5s ease-in-out infinite;
+}
+
+@keyframes twinkle{
+  0%, 100%{ opacity:.9; }
+  50%{ opacity:.35; }
+}
+
+/* ---------------------------------------------
+   Comet — rare diagonal streak, signature motion
+--------------------------------------------- */
+
+.comet{
+  position:absolute;
+  top:8%;
+  left:-10%;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:
+    0 0 6px 2px rgba(255,255,255,.9),
+    0 0 14px 4px rgba(155,232,255,.6);
+  animation: cometFly 9s cubic-bezier(.3,.6,.4,1) infinite;
+  animation-delay: 2.5s;
+}
+
+.comet::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:100%;
+  width:140px;
+  height:1.4px;
+  background:linear-gradient(90deg, transparent, rgba(255,214,140,.7), rgba(255,255,255,.95));
+  transform:translateY(-50%);
+}
+
+@keyframes cometFly{
+  0%{ transform:translate(0,0); opacity:0; }
+  4%{ opacity:1; }
+  22%{ transform:translate(115vw, 42vh); opacity:0; }
+  100%{ transform:translate(115vw, 42vh); opacity:0; }
+}
+
+.comet2{
+  position:absolute;
+  top:62%;
+  left:-10%;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:#fff;
+  box-shadow:
+    0 0 6px 2px rgba(255,255,255,.9),
+    0 0 16px 5px rgba(241,60,255,.65);
+  animation: comet2Fly 12s cubic-bezier(.3,.6,.4,1) infinite;
+  animation-delay: 6.2s;
+}
+
+.comet2::before{
+  content:"";
+  position:absolute;
+  top:50%;
+  right:100%;
+  width:120px;
+  height:1.4px;
+  background:linear-gradient(90deg, transparent, rgba(241,60,255,.7), rgba(255,255,255,.95));
+  transform:translateY(-50%);
+}
+
+@keyframes comet2Fly{
+  0%{ transform:translate(0,0); opacity:0; }
+  4%{ opacity:1; }
+  20%{ transform:translate(110vw, -46vh); opacity:0; }
+  100%{ transform:translate(110vw, -46vh); opacity:0; }
+}
+
+/* Floating dust motes drifting slowly upward, for a living/alive feel */
+.dustField{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+}
+
+.dustField span{
+  position:absolute;
+  border-radius:50%;
+  animation:dustDrift linear infinite;
+}
+
+@keyframes dustDrift{
+  0%{ transform:translateY(0) translateX(0); opacity:0; }
+  8%{ opacity:.9; }
+  92%{ opacity:.5; }
+  100%{ transform:translateY(-92vh) translateX(14px); opacity:0; }
+}
+
+/* ---------------------------------------------
+   Noise + vignette
+--------------------------------------------- */
+
+.noise{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.045;
+  mix-blend-mode:overlay;
+}
+
+.vignette{
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(120% 90% at 50% 8%, transparent 40%, rgba(0,0,0,.4) 100%),
+    radial-gradient(100% 60% at 50% 100%, rgba(0,0,0,.5), transparent 60%);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .nebula, .starsNear, .comet, .comet::before{ animation:none !important; }
+}

@@ -1,0 +1,193 @@
+.navigation{
+
+position:fixed;
+
+left:16px;
+
+right:16px;
+
+bottom:18px;
+
+height:78px;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+border-radius:28px;
+
+background:
+
+rgba(16,22,40,.72);
+
+backdrop-filter:blur(34px);
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.45),
+
+0 0 30px rgba(124,77,255,.12);
+
+z-index:999;
+
+}
+
+.item{
+
+position:relative;
+
+flex:1;
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+gap:6px;
+
+color:#95A1BF;
+
+text-decoration:none;
+
+transition:.35s;
+
+font-size:11px;
+
+font-weight:600;
+
+}
+
+.dot{
+
+position:absolute;
+
+top:6px;
+
+width:5px;
+
+height:5px;
+
+border-radius:50%;
+
+opacity:0;
+
+transform:scale(0);
+
+transition:.35s;
+
+background:linear-gradient(135deg,#5EF5FF,#FFE3AE);
+
+box-shadow:0 0 10px 3px rgba(94,245,255,.7);
+
+}
+
+.item.active .dot{
+
+opacity:1;
+
+transform:scale(1);
+
+animation:dotPulse 1.8s ease-in-out infinite;
+
+}
+
+@keyframes dotPulse{
+
+0%,100%{ box-shadow:0 0 8px 2px rgba(94,245,255,.6); }
+
+50%{ box-shadow:0 0 16px 5px rgba(94,245,255,.9); }
+
+}
+
+.item svg{
+
+transition:.35s;
+
+}
+
+.item:hover{
+
+color:white;
+
+}
+
+.item:hover svg{
+
+transform:translateY(-2px);
+
+}
+
+.active{
+
+color:white;
+
+}
+
+.active svg{
+
+color:#8B5CF6;
+
+filter:
+
+drop-shadow(0 0 10px rgba(139,92,246,.9));
+
+animation:navFloat 2.6s ease-in-out infinite;
+
+}
+
+@keyframes navFloat{
+
+0%,100%{ transform:translateY(0); }
+
+50%{ transform:translateY(-3px); }
+
+}
+
+/* Liquid bar top highlight */
+.liquidBar {
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,.55), rgba(0,217,255,.55), transparent);
+  animation: liquidNavLine 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.iconWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  transition: background 0.28s ease;
+}
+
+.active .iconWrap {
+  background: rgba(139,92,246,.15);
+}
+
+.activeGlow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  background: radial-gradient(circle, rgba(139,92,246,.25), transparent 70%);
+  pointer-events: none;
+}
+
+@keyframes liquidNavLine {
+  0%,100% { opacity: .5; transform: scaleX(.8); }
+  50%     { opacity: 1;  transform: scaleX(1.05); }
+}

@@ -1,0 +1,30 @@
+.wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  direction: ltr;
+}
+
+.normal {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+}
+
+.warning {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.14);
+}
+
+.danger {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.16);
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+}

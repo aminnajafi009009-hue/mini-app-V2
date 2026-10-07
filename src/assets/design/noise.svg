@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220">
+
+<filter id="noise">
+
+<feTurbulence
+type="fractalNoise"
+baseFrequency=".85"
+numOctaves="3"
+stitchTiles="stitch"/>
+
+</filter>
+
+<rect
+width="220"
+height="220"
+filter="url(#noise)"
+opacity=".18"/>
+
+</svg>
